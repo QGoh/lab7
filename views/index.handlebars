@@ -2,6 +2,16 @@
 
 <html>
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134944511-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-134944511-1');
+	</script>
+
 	<title>HCI Project Portfolio</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +29,20 @@
 		</div>
 
 		<h4>Projects</h4>
+		{{#if viewAlt}}
+		{{#each projects}}
+			<div class="project" id="{{id}}">
+				<div class="thumbnail">
+					<a href="/project/{{id}}">
+						<img src="images/{{image}}" alt="Lorem Pixel image" class="img-responsive">
+						<h4>{{title}}</h4>
+					</a>
+					<button class="likeBtn">Like</button>
+					<div class="details"></div>
+				</div>
+			</div>
+		{{/each}}
+		{{else}}
 		{{#each projects}}
 			<div class="project" id="{{id}}">
 				<div class="thumbnail">
@@ -31,6 +55,7 @@
 				</div>
 			</div>
 		{{/each}}
+		{{/if}}
 
 
 	<script src="https://code.jquery.com/jquery.js"></script>
